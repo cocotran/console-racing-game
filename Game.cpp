@@ -34,7 +34,7 @@ private:
 
 protected:
 
-	virtual bool OnUserCreate()
+	virtual bool OnUserCreate() override
 	{
 		vecTrack.push_back(make_pair(0.0f, 10.0f));	// Short section for start/finish line
 		vecTrack.push_back(make_pair(0.0f, 200.0f));
@@ -243,8 +243,8 @@ protected:
 int main()
 {
 	RacingWasm game;
-	game.Construct(160, 100, 5, 5);
-	game.Start();
+	if (game.Construct(160, 100, 5, 5))
+		game.Start();
 
 	return 0;
 }
